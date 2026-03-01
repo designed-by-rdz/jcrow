@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   aria-hidden="true"
+   role="img"
+   class="iconify iconify--logos"
+   width="37.07"
+   height="36"
+   preserveAspectRatio="xMidYMid meet"
+   viewBox="0 0 256 198"
+   version="1.1"
+   id="svg3"
+   sodipodi:docname="vue.svg"
+   inkscape:version="1.4.2 (ebf0e94, 2025-05-08)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs3" />
+  <sodipodi:namedview
+     id="namedview3"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="10.060198"
+     inkscape:cx="25.446815"
+     inkscape:cy="19.780922"
+     inkscape:window-width="1920"
+     inkscape:window-height="1045"
+     inkscape:window-x="0"
+     inkscape:window-y="35"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg3" />
+  <g
+     id="g10"
+     transform="matrix(1.1011706,0,0,1.1011706,-395.53226,-22.15788)">
+    <path
+       id="text7"
+       style="font-size:303.648px;line-height:0.8;font-family:Brotesque;-inkscape-font-specification:Brotesque;text-align:center;letter-spacing:-7.93981px;text-anchor:middle;fill:#bbbbbb;fill-opacity:1;stroke-width:263.716;stroke-linecap:square;stroke-miterlimit:0;paint-order:markers stroke fill"
+       d="M 481.35959,3.7207977 447.81495,48.487456 h 22.98354 l -0.52603,28.796871 45.79175,-58.295118 0.26976,-15.2684113 z M 513.9331,143.06528 469.81387,164.03912 a 10.777068,10.777068 0 0 1 -10.68249,9.36066 10.777068,10.777068 0 0 1 -9.80578,-6.29889 l -30.03776,49.23119 h 51.73995 c 11.46587,0 21.26802,-3.96194 29.40383,-11.86944 8.12013,-8.00635 12.44207,-17.88421 12.94848,-29.64662 z" />
+    <path
+       style="fill:#c83737;fill-opacity:1;stroke-width:95.3126;stroke-linecap:square;stroke-miterlimit:0;paint-order:markers stroke fill"
+       d="M 517.44006,31.343533 394.70188,195.17982 433.81574,179.2701 487.47873,89.769401 462.9187,156.93615 l 65.07137,-31.77324 2.15907,-70.921547 7.32094,-9.718344 3.53054,-4.68669 15.16245,-9.105154 z"
+       id="path7"
+       sodipodi:nodetypes="ccccccccccc" />
+  </g>
+</svg>

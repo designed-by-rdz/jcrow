@@ -14,7 +14,9 @@
       {
         "title": "JCRow - JSON Structure Tabulator",
         "width": 1280,
-        "height": 720
+        "height": 720,
+        "maximized": true,
+        "fullscreen": false
       }
     ],
     "security": {

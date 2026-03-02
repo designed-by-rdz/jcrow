@@ -43,3 +43,7 @@ body {
   overflow: hidden;
   font-size: small;
 }
+
+html, body {
+  height: 100%;
+}

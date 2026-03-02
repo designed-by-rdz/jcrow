@@ -142,6 +142,9 @@
 
 
 <style lang="css" scoped>
+    .main-layout {
+        height: 100%;
+    }
     .menu-bar {
         display: flex;
         flex-direction: row;
@@ -206,7 +209,7 @@
         width: -webkit-fill-available;
     }
     .main-bar {
-        height: -webkit-fill-available;
+        height: 100vh;
         width: -webkit-fill-available;
         display: flex;
         flex-direction: row;
@@ -306,6 +309,7 @@
         position:sticky;
         z-index: 2;
         left: 0;
+        width: 30px;
     }
     .history-list {
         text-indent: 10px;
@@ -498,6 +502,9 @@ onMounted(() => {
             exitApp();
         }
     });
+    document.addEventListener('contextmenu', (e) => {
+        e.preventDefault();
+    }, false);
 });
 const resizeContainer = () => {
     const target = document.querySelector('.main-content');
@@ -624,6 +631,11 @@ const openFile = async (selected:string) => {
     filepath.value = selected;
     rows.value = [];
     rows.value = JSON.parse(fileContent.value);
+    if (rows.value.length > 500) {
+        resetRow();
+        showNotification("Cannot parse rows of more than 500 at the moment.");
+        return;
+    }
     filename.value = selected.substring(selected.lastIndexOf("/") + 1);
     const headers = [...new Set(rows.value.flatMap(Object.keys))];
     const normalizedData = rows.value.map(item => {

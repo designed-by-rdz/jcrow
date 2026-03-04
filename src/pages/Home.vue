@@ -503,9 +503,9 @@ onMounted(() => {
             exitApp();
         }
     });
-    // document.addEventListener('contextmenu', (e) => {
-    //     e.preventDefault();
-    // }, false);
+    document.addEventListener('contextmenu', (e) => {
+        e.preventDefault();
+    }, false);
 });
 const resizeContainer = () => {
     const target = document.querySelector('.main-content');

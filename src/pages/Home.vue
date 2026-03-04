@@ -37,7 +37,7 @@
                     <div class="files-list" @click="openFileFromHistory(list)">{{ list }}</div>
                 </div>
             </div>
-            <div class="main-content">
+            <div class="main-content" id="maincontent">
                  <div class="top-bar">
                     <div class="material-symbols-outlined box-button btn-edit" :style="{color: isUnsaved ? 'coral' : 'var(--text-color-light)'}" @click="saveJson" title="Save File">save</div>
                     <div class="material-symbols-outlined box-button btn-edit" @click="editColumnValue" title="Edit Cell">edit_square</div>
@@ -69,7 +69,7 @@
                     </table>
                  </div>
             </div>
-            <div id="right-side" class="word-viewer">
+            <div id="right-side" class="word-viewer" style="display: none;">
                 <div class="material-symbols-outlined box-button btn-del" @click="viewJSON" title="Close">close</div>
                 <pre class="json-block">{{ rows }}</pre><div class="word-notice">Note: key-value pairs with empty values will be removed upon saving to file.</div>
             </div>
@@ -210,7 +210,7 @@
     }
     .main-bar {
         height: 100vh;
-        width: -webkit-fill-available;
+        width: 100vw;
         display: flex;
         flex-direction: row;
     }
@@ -224,7 +224,7 @@
         -ms-user-select: none;
     }
     .main-content {
-        width: -webkit-fill-available;
+        max-width: calc(100vw - 200px);
         background-color: var(--gray-color-tertiary);
     }
     .btn-del:hover {
@@ -239,22 +239,24 @@
     .top-bar {
         display: flex;
         flex-direction: row;
-        width: -webkit-fill-available;
+        /* width: calc(100vw - 250px); */
         align-items: center;
         padding: 10px 15px;
         border-bottom: 1px solid var(--gray-color-primary);
         gap: 2px;
+        padding-right: 35px;
         user-select: none;
+        z-index: 0;
         -webkit-user-select: none;
         -moz-user-select: none;
         -ms-user-select: none;
     }
     .top-bar input {
-        width: 350px;
+        max-width: 350px;
     }
     .row-details {
         text-align: right;
-        width: -webkit-fill-available;
+        width: 100vw;
     }
     .input-text, select {
         padding: 5px 7px;
@@ -324,7 +326,6 @@
         width: 300px;
         padding: 10px;
         border-left: 1px solid var(--gray-color-primary);
-        display: flex;
         flex-direction: column;
         position: sticky;
         z-index: 5;
@@ -502,9 +503,9 @@ onMounted(() => {
             exitApp();
         }
     });
-    document.addEventListener('contextmenu', (e) => {
-        e.preventDefault();
-    }, false);
+    // document.addEventListener('contextmenu', (e) => {
+    //     e.preventDefault();
+    // }, false);
 });
 const resizeContainer = () => {
     const target = document.querySelector('.main-content');
@@ -718,10 +719,13 @@ const deleteRow = () => {
 };
 const viewJSON = () => {
     const rightside = document.getElementById('right-side')?.style;
-    if (rightside?.display != "flex") {
+    const mainbody = document.getElementById('maincontent')?.style;
+    if (rightside?.display == "none") {
         rightside!.display = "flex";
+        mainbody!.maxWidth = 'calc(100vw - 500px)';
     } else {
         rightside!.display = "none";
+        mainbody!.maxWidth = 'calc(100vw - 200px)';
     }
 };
 const closeModal = () => {
@@ -755,14 +759,14 @@ const submitOption = async () => {
 const clickCell = (text : any, index : number, key : string) => {
     valuesForEdit.value = [];
     valuesForEdit.value.push(text,index,key);
-}
+};
 const editColumnValue = () => {
     if (valuesForEdit.value.length == 0 || selectedCell.value == null) {
         showNotification("No cell selected!");
         return;
     }
     editValue(valuesForEdit.value[0],valuesForEdit.value[1],valuesForEdit.value[2]);
-}
+};
 const editValue = (text : any, index : number, key : string) => {
     selectedCell.value = null;
     if (typeof(text) == "object") {
@@ -852,7 +856,7 @@ const saveAsJson = async () => {
     } catch (err) {
         showNotification("Save error:" + err);
     }
-}
+};
 const saveJson = async () => {
     try {
         if (filepath.value != "") {
@@ -864,12 +868,12 @@ const saveJson = async () => {
     } catch (err) {
         showNotification("Save error:" + err);
     }
-}
+};
 const saveFile = async (path : string) => {
     const content = JSON.stringify(rows.value, getCircularReplacer(), 2)
         .replace(/\r?\n|\r/g, " ")
         .replace(/\s+/g, " ");
     await writeTextFile(path, content);
     isUnsaved.value = false;
-}
+};
 </script>
